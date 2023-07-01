@@ -111,18 +111,18 @@ const AdminRegisterPage = () => {
                                 helperText={adminNameError && 'Name is required'}
                                 onChange={handleInputChange}
                             />
-                            <TextField
+                          <TextField
                                 margin="normal"
                                 required
                                 fullWidth
                                 id="schoolName"
-                                label="Create your school name"
+                                label="Create your org name"
                                 name="schoolName"
                                 autoComplete="off"
                                 error={schoolNameError}
-                                helperText={schoolNameError && 'School name is required'}
+                                helperText={schoolNameError && 'Org name is required'}
                                 onChange={handleInputChange}
-                            />
+                            />
                             <TextField
                                 margin="normal"
                                 required
