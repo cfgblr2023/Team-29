@@ -33,7 +33,7 @@ const LoginPage = ({ role }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (role === "Student") {
+        if (role === "Mentee") {
             const rollNum = event.target.rollNumber.value;
             const studentName = event.target.studentName.value;
             const password = event.target.password.value;
