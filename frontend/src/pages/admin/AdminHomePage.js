@@ -1,17 +1,16 @@
-import { Container, Grid, Paper } from '@mui/material';
-import SeeNotice from '../../components/SeeNotice';
-import Students from '../../assets/img1.png';
-import Classes from '../../assets/img2.png';
-import Teachers from '../../assets/img3.png';
-import Fees from '../../assets/img4.png';
-import ApexCharts from 'react-apexcharts';
-import styled from 'styled-components';
-import CountUp from 'react-countup';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
-import { getAllStudents } from '../../redux/studentRelated/studentHandle';
-import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
+import { Container, Grid, Paper } from "@mui/material";
+import SeeNotice from "../../components/SeeNotice";
+import Students from "../../assets/img1.png";
+import Classes from "../../assets/img2.png";
+import Teachers from "../../assets/img3.png";
+import ApexCharts from "react-apexcharts";
+import styled from "styled-components";
+import CountUp from "react-countup";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllSclasses } from "../../redux/sclassRelated/sclassHandle";
+import { getAllStudents } from "../../redux/studentRelated/studentHandle";
+import { getAllTeachers } from "../../redux/teacherRelated/teacherHandle";
 
 const AdminHomePage = () => {
   const dispatch = useDispatch();
@@ -23,38 +22,11 @@ const AdminHomePage = () => {
 
   const adminID = currentUser._id;
 
-  useEffect(() => {
-    dispatch(getAllStudents(adminID));
-    dispatch(getAllSclasses(adminID, 'Sclass'));
-    dispatch(getAllTeachers(adminID));
-  }, [adminID, dispatch]);
-  useEffect(() => {
-    // Create the circular graph using ApexCharts
-    var options = {
-      series: [44, 55, 41, 17, 15],
-      chart: {
-        type: 'donut',
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: 'bottom',
-            },
-          },
-        },
-      ],
-    };
-
-    var chart = new ApexCharts(document.querySelector('#chart'), options);
-    chart.render();
-  }, []);
-
-  // ... remaining code
+    useEffect(() => {
+        dispatch(getAllStudents(adminID));
+        dispatch(getAllSclasses(adminID, "Sclass"));
+        dispatch(getAllTeachers(adminID));
+    }, [adminID, dispatch]);
 
   const numberOfStudents = studentsList && studentsList.length;
   const numberOfClasses = sclassesList && sclassesList.length;
@@ -125,6 +97,7 @@ const Title = styled.p`
 `;
 
 const Data = styled(CountUp)`
+  font-size: calc(1.3rem + 0.6vw);
   font-size: calc(1.3rem + 0.6vw);
   color: green;
 `;

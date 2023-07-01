@@ -17,14 +17,14 @@ const App = () => {
       {currentRole === null &&
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/choose" element={<ChooseUser visitor="normal" />} />
-          <Route path="/chooseasguest" element={<ChooseUser visitor="guest" />} />
+          <Route path="/choose" element={<ChooseUser />} />
 
-          <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
-          <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
-          <Route path="/Teacherlogin" element={<LoginPage role="Teacher" />} />
+          <Route path="/coordinatorLogin" element={<LoginPage role="Coordinator" />} />
+          <Route path="/mentorLogin" element={<LoginPage role="Mentor" />} />
+          <Route path="/menteeLogin" element={<LoginPage role="Mentee" />} />
 
-          <Route path="/Adminregister" element={<AdminRegisterPage />} />
+          <Route path="/Mentorregister" element={<AdminRegisterPage />} />
+          <Route path="/Menteeregister" element={<AdminRegisterPage />} />
 
           <Route path='*' element={<Navigate to="/" />} />
         </Routes>}
