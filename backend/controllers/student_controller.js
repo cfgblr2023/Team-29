@@ -65,7 +65,7 @@ const getStudents = async (req, res) => {
             });
             res.send(modifiedStudents);
         } else {
-            res.send({ message: "No students found" });
+            res.send({ message: "No mentees found" });
         }
     } catch (err) {
         res.status(500).json(err);
@@ -104,7 +104,7 @@ const deleteStudents = async (req, res) => {
     try {
         const result = await Student.deleteMany({ school: req.params.id })
         if (result.deletedCount === 0) {
-            res.send({ message: "No students found to delete" })
+            res.send({ message: "No mentees found to delete" })
         } else {
             res.send(result)
         }
@@ -117,7 +117,7 @@ const deleteStudentsByClass = async (req, res) => {
     try {
         const result = await Student.deleteMany({ sclassName: req.params.id })
         if (result.deletedCount === 0) {
-            res.send({ message: "No students found to delete" })
+            res.send({ message: "No mentees found to delete" })
         } else {
             res.send(result)
         }

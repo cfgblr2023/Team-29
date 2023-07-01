@@ -10,7 +10,7 @@ const Homepage = () => {
     <StyledContainer>
       <Grid container spacing={0}>
         <Grid item xs={12} md={6}>
-          <img src={Students} alt="students" style={{ width: "100%" }} />
+          <img src={Students} alt="mentees" style={{ width: "100%" }} />
         </Grid>
         <Grid item xs={12} md={6}>
           <StyledPaper elevation={3}>
