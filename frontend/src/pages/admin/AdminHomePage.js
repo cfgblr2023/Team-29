@@ -22,38 +22,11 @@ const AdminHomePage = () => {
 
   const adminID = currentUser._id;
 
-  useEffect(() => {
-    dispatch(getAllStudents(adminID));
-    dispatch(getAllSclasses(adminID, "Sclass"));
-    dispatch(getAllTeachers(adminID));
-  }, [adminID, dispatch]);
-  useEffect(() => {
-    // Create the circular graph using ApexCharts
-    var options = {
-      series: [44, 55, 41, 17, 15],
-      chart: {
-        type: "donut",
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: "bottom",
-            },
-          },
-        },
-      ],
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-  }, []);
-
-  // ... remaining code
+    useEffect(() => {
+        dispatch(getAllStudents(adminID));
+        dispatch(getAllSclasses(adminID, "Sclass"));
+        dispatch(getAllTeachers(adminID));
+    }, [adminID, dispatch]);
 
   const numberOfStudents = studentsList && studentsList.length;
   const numberOfClasses = sclassesList && sclassesList.length;
@@ -66,31 +39,44 @@ const AdminHomePage = () => {
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Students} alt="Students" />
-              <Title>Total Mentees</Title>
+              <Title>Total Students</Title>
               <Data start={0} end={numberOfStudents} duration={2.5} />
             </StyledPaper>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Classes} alt="Classes" />
-              <Title>Total Sessions</Title>
+              <Title>Total Classes</Title>
               <Data start={0} end={numberOfClasses} duration={5} />
             </StyledPaper>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Teachers} alt="Teachers" />
-              <Title>Total Mentors</Title>
+              <Title>Total Teachers</Title>
               <Data start={0} end={numberOfTeachers} duration={2.5} />
             </StyledPaper>
           </Grid>
+          <Grid item xs={12} md={4} lg={4}>
+            <StyledPaper>
+              <img src={Fees} alt="Fees" />
+              <Title>Fees Collection</Title>
+              <Data start={0} end={23000} duration={2.5} prefix="$" />{' '}
+            </StyledPaper>
+          </Grid>
           <Grid item xs={12} md={12} lg={12}>
-            <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
               <SeeNotice />
             </Paper>
           </Grid>
         </Grid>
-        <div id="chart"></div>{" "}
+        <Grid item xs={12} md={12} lg={12}>
+          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <SeeNotice />
+            <div id="chart"></div>{' '}
+            {/* Add this line for rendering the circular graph */}
+          </Paper>
+        </Grid>
       </Container>
     </>
   );
@@ -111,6 +97,7 @@ const Title = styled.p`
 `;
 
 const Data = styled(CountUp)`
+  font-size: calc(1.3rem + 0.6vw);
   font-size: calc(1.3rem + 0.6vw);
   color: green;
 `;
