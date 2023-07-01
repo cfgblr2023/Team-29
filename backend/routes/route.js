@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { adminRegister, adminLogIn, deleteAdmin, getAdminDetail, updateAdmin } = require('../controllers/admin-controller.js');
+const { adminRegister, coordinatorLogin, deleteAdmin, getAdminDetail, updateAdmin } = require('../controllers/admin-controller.js');
 const { sclassCreate, sclassList, deleteSclass, deleteSclasses, getSclassDetail, getSclassStudents } = require('../controllers/class-controller.js');
 const { complainCreate, complainList } = require('../controllers/complain-controller.js');
 const { noticeCreate, noticeList, deleteNotices, deleteNotice, updateNotice } = require('../controllers/notice-controller.js');
@@ -22,9 +22,9 @@ const {
 const { subjectCreate, classSubjects, deleteSubjectsByClass, getSubjectDetail, deleteSubject, freeSubjectList, allSubjects, deleteSubjects } = require('../controllers/subject-controller.js');
 const { teacherRegister, teacherLogIn, getTeachers, getTeacherDetail, deleteTeachers, deleteTeachersByClass, deleteTeacher, updateTeacherSubject, teacherAttendance } = require('../controllers/teacher-controller.js');
 
-// Admin
+// Coordinator
 router.post('/AdminReg', adminRegister);
-router.post('/AdminLogin', adminLogIn);
+router.post('/CoordinatorLogin', coordinatorLogin);
 
 router.get("/Admin/:id", getAdminDetail)
 router.delete("/Admin/:id", deleteAdmin)
@@ -34,7 +34,7 @@ router.put("/Admin/:id", updateAdmin)
 // Student
 
 router.post('/StudentReg', studentRegister);
-router.post('/StudentLogin', studentLogIn)
+router.post('/MentorLogin', studentLogIn)
 
 router.get("/Students/:id", getStudents)
 router.get("/Student/:id", getStudentDetail)
@@ -58,7 +58,7 @@ router.put('/RemoveStudentAtten/:id', removeStudentAttendance)
 // Teacher
 
 router.post('/TeacherReg', teacherRegister);
-router.post('/TeacherLogin', teacherLogIn)
+router.post('/MenteeLogin', teacherLogIn)
 
 router.get("/Teachers/:id", getTeachers)
 router.get("/Teacher/:id", getTeacherDetail)
