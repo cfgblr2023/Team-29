@@ -184,7 +184,7 @@ const ShowStudents = () => {
                     {response ?
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                             <GreenButton variant="contained" onClick={() => navigate("/Admin/addstudents")}>
-                                Add Students
+                                Add Mentees
                             </GreenButton>
                         </Box>
                         :

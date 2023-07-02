@@ -41,7 +41,7 @@ const teacherLogIn = async (req, res) => {
                 res.send({ message: "Invalid password" });
             }
         } else {
-            res.send({ message: "Teacher not found" });
+            res.send({ message: "Mentor not found" });
         }
     } catch (err) {
         res.status(500).json(err);

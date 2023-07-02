@@ -63,7 +63,7 @@ const AddTeacher = () => {
     <div>
       <div className="register">
         <form className="registerForm" onSubmit={submitHandler}>
-          <span className="registerTitle">Add Teacher</span>
+          <span className="registerTitle">Add Mentor</span>
           <br />
           <label>
             Subject : {subjectDetails && subjectDetails.subName}

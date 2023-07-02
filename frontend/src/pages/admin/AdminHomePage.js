@@ -1,16 +1,17 @@
-import { Container, Grid, Paper } from "@mui/material";
-import SeeNotice from "../../components/SeeNotice";
-import Students from "../../assets/img1.png";
-import Classes from "../../assets/img2.png";
-import Teachers from "../../assets/img3.png";
-import ApexCharts from "react-apexcharts";
-import styled from "styled-components";
-import CountUp from "react-countup";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getAllSclasses } from "../../redux/sclassRelated/sclassHandle";
-import { getAllStudents } from "../../redux/studentRelated/studentHandle";
-import { getAllTeachers } from "../../redux/teacherRelated/teacherHandle";
+import { Container, Grid, Paper } from '@mui/material';
+import SeeNotice from '../../components/SeeNotice';
+import Students from '../../assets/img1.png';
+import Classes from '../../assets/img2.png';
+import Teachers from '../../assets/img3.png';
+import ApexCharts from 'apexcharts';
+import Fees from '../../assets/img4.png';
+import styled from 'styled-components';
+import CountUp from 'react-countup';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllSclasses } from '../../redux/sclassRelated/sclassHandle';
+import { getAllStudents } from '../../redux/studentRelated/studentHandle';
+import { getAllTeachers } from '../../redux/teacherRelated/teacherHandle';
 
 const AdminHomePage = () => {
   const dispatch = useDispatch();
@@ -22,15 +23,43 @@ const AdminHomePage = () => {
 
   const adminID = currentUser._id;
 
-    useEffect(() => {
-        dispatch(getAllStudents(adminID));
-        dispatch(getAllSclasses(adminID, "Sclass"));
-        dispatch(getAllTeachers(adminID));
-    }, [adminID, dispatch]);
+  useEffect(() => {
+    dispatch(getAllStudents(adminID));
+    dispatch(getAllSclasses(adminID, 'Sclass'));
+    dispatch(getAllTeachers(adminID));
+  }, [adminID, dispatch]);
 
   const numberOfStudents = studentsList && studentsList.length;
   const numberOfClasses = sclassesList && sclassesList.length;
   const numberOfTeachers = teachersList && teachersList.length;
+
+  useEffect(() => {
+    // Create the circular graph using ApexCharts
+    var options = {
+      series: [numberOfClasses, numberOfClasses, numberOfTeachers],
+      chart: {
+        type: 'donut',
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+        },
+      ],
+    };
+
+    var chart = new ApexCharts(document.querySelector('#chart'), options);
+    chart.render();
+  }, []);
+
+  // ... remaining code
 
   return (
     <>
@@ -39,43 +68,31 @@ const AdminHomePage = () => {
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Students} alt="Students" />
-              <Title>Total Students</Title>
+              <Title>Total Mentees</Title>
               <Data start={0} end={numberOfStudents} duration={2.5} />
             </StyledPaper>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Classes} alt="Classes" />
-              <Title>Total Classes</Title>
+              <Title>Total Sessions</Title>
               <Data start={0} end={numberOfClasses} duration={5} />
             </StyledPaper>
           </Grid>
           <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
               <img src={Teachers} alt="Teachers" />
-              <Title>Total Teachers</Title>
+              <Title>Total Mentors</Title>
               <Data start={0} end={numberOfTeachers} duration={2.5} />
-            </StyledPaper>
-          </Grid>
-          <Grid item xs={12} md={4} lg={4}>
-            <StyledPaper>
-              <img src={Fees} alt="Fees" />
-              <Title>Fees Collection</Title>
-              <Data start={0} end={23000} duration={2.5} prefix="$" />{' '}
             </StyledPaper>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
               <SeeNotice />
+              <div id="chart"></div>{' '}
+              {/* Add this line for rendering the circular graph */}
             </Paper>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-            <SeeNotice />
-            <div id="chart"></div>{' '}
-            {/* Add this line for rendering the circular graph */}
-          </Paper>
         </Grid>
       </Container>
     </>
@@ -97,7 +114,6 @@ const Title = styled.p`
 `;
 
 const Data = styled(CountUp)`
-  font-size: calc(1.3rem + 0.6vw);
   font-size: calc(1.3rem + 0.6vw);
   color: green;
 `;
