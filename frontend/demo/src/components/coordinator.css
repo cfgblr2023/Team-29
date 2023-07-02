@@ -1,0 +1,29 @@
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  margin: 50px;
+  justify-content: space-evenly;
+}
+
+.horizontal-container-coordinator {
+  display: flex;
+  flex-direction: row;
+  margin: 40px;
+  margin-left: 300px;
+  margin-right: 100px;
+  justify-content: space-between;
+}
+
+.join-meeting-container {
+  align-items: center;
+  justify-self: center;
+  justify-content: space-around;
+}
+
+.each-card {
+  margin: 20px;
+}
+
+.mentee-table {
+  margin-left: 0px;
+}

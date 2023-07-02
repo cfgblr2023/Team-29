@@ -52,7 +52,7 @@ const AdminDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute'>
+                <AppBar open={open} position='absolute'  sx={{bgcolor:'orange'}}>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
@@ -70,6 +70,7 @@ const AdminDashboard = () => {
                             component="h1"
                             variant="h6"
                             color="inherit"
+                           
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
