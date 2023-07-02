@@ -22,7 +22,7 @@ const Homepage = () => {
               System
             </StyledTitle>
             <StyledText>
-              Streamline school management, class organization, and add students
+              Streamline school management, class organization, and add mentees
               and faculty. Seamlessly track attendance, assess performance, and
               provide feedback. Access records, view marks, and communicate
               effortlessly.

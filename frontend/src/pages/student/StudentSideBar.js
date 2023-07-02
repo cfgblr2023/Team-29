@@ -24,7 +24,7 @@ const StudentSideBar = () => {
                     <ListItemIcon>
                         <AssignmentIcon color={location.pathname.startsWith("/Student/subjects") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
-                    <ListItemText primary="Subjects" />
+                    <ListItemText primary="Courses" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Student/attendance">
                     <ListItemIcon>

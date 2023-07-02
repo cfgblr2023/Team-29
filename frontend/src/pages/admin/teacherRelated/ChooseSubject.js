@@ -36,11 +36,11 @@ const ChooseSubject = ({ situation }) => {
         return <div>Loading...</div>;
     } else if (response) {
         return <div>
-            <h1>Sorry all subjects have teachers assigned already</h1>
+            <h1>Sorry all courses have mentors assigned already</h1>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                 <PurpleButton variant="contained"
                     onClick={() => navigate("/Admin/addsubject/" + classID)}>
-                    Add Subjects
+                    Add Courses
                 </PurpleButton>
             </Box>
         </div>;
@@ -65,8 +65,8 @@ const ChooseSubject = ({ situation }) => {
                         <TableHead>
                             <StyledTableRow>
                                 <StyledTableCell></StyledTableCell>
-                                <StyledTableCell align="center">Subject Name</StyledTableCell>
-                                <StyledTableCell align="center">Subject Code</StyledTableCell>
+                                <StyledTableCell align="center">Course Name</StyledTableCell>
+                                <StyledTableCell align="center">Course Code</StyledTableCell>
                                 <StyledTableCell align="center">Actions</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>

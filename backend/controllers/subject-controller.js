@@ -16,7 +16,7 @@ const subjectCreate = async (req, res) => {
         });
 
         if (existingSubjectBySubCode) {
-            res.send({ message: 'Sorry this subcode must be unique as it already exists' });
+            res.send({ message: 'Sorry this coursecode must be unique as it already exists' });
         } else {
             const newSubjects = subjects.map((subject) => ({
                 ...subject,
@@ -39,7 +39,7 @@ const allSubjects = async (req, res) => {
         if (subjects.length > 0) {
             res.send(subjects)
         } else {
-            res.send({ message: "No subjects found" });
+            res.send({ message: "No courses found" });
         }
     } catch (err) {
         res.status(500).json(err);
@@ -65,7 +65,7 @@ const freeSubjectList = async (req, res) => {
         if (subjects.length > 0) {
             res.send(subjects);
         } else {
-            res.send({ message: "No subjects found" });
+            res.send({ message: "No courses found" });
         }
     } catch (err) {
         res.status(500).json(err);
@@ -81,7 +81,7 @@ const getSubjectDetail = async (req, res) => {
             res.send(subject);
         }
         else {
-            res.send({ message: "No subject found" });
+            res.send({ message: "No course found" });
         }
     } catch (err) {
         res.status(500).json(err);

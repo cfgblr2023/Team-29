@@ -111,11 +111,11 @@ const StudentExamMarks = ({ situation }) => {
                         >
                             <Stack spacing={1} sx={{ mb: 3 }}>
                                 <Typography variant="h4">
-                                    Student Name: {userDetails.name}
+                                    Course Name: {userDetails.name}
                                 </Typography>
                                 {currentUser.teachSubject &&
                                     <Typography variant="h4">
-                                        Subject Name: {currentUser.teachSubject?.subName}
+                                        Course Name: {currentUser.teachSubject?.subName}
                                     </Typography>
                                 }
                             </Stack>
@@ -125,7 +125,7 @@ const StudentExamMarks = ({ situation }) => {
                                         situation === "Student" &&
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">
-                                                Select Subject
+                                                Select Course
                                             </InputLabel>
                                             <Select
                                                 labelId="demo-simple-select-label"
@@ -142,7 +142,7 @@ const StudentExamMarks = ({ situation }) => {
                                                     ))
                                                     :
                                                     <MenuItem value="Select Subject">
-                                                        Add Subjects For Marks
+                                                        Add Courses For Marks
                                                     </MenuItem>
                                                 }
                                             </Select>

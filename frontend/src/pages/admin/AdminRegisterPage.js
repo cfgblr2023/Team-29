@@ -94,7 +94,7 @@ const AdminRegisterPage = () => {
                         <Typography variant="h7">
                             Create your own school by registering as an admin.
                             <br />
-                            You will be able to add students and faculty and
+                            You will be able to add Mentees and faculty and
                             manage the system.
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
